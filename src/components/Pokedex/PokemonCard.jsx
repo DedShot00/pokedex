@@ -2,24 +2,44 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const pokeColors = {
-  normal:'amber-700',
-  fighting:'orange-700',
-  flying:'sky-600',
-  poison:'violet-700',
-  ground:'amber-800',
-  rock:'gray-500',
-  bug:'green-500',
-  ghost:'indigo-700',
-  steel:'zinc-500',
-  fire:'orange-600',
-  water:'blue-500',
-  grass:'green-300',
-  electric:'indigo-600',
-  psychic:'amber-600',
-  dragon:'rose-700',
-  dark:'zinc-800',
-  fairy:'pink-700',
+const pokeBg = {
+  normal:'bg-amber-700',
+  fighting:'bg-orange-700',
+  flying:'bg-sky-600',
+  poison:'bg-violet-700',
+  ground:'bg-amber-800',
+  rock:'bg-gray-500',
+  bug:'bg-green-500',
+  ghost:'bg-indigo-700',
+  steel:'bg-zinc-500',
+  fire:'bg-orange-600',
+  water:'bg-blue-500',
+  grass:'bg-green-300',
+  electric:'bg-indigo-600',
+  psychic:'bg-amber-600',
+  dragon:'bg-rose-700',
+  dark:'bg-zinc-800',
+  fairy:'bg-pink-700',
+};
+
+const pokeBorder = {
+  normal:'border-amber-700',
+  fighting:'border-orange-700',
+  flying:'border-sky-600',
+  poison:'border-violet-700',
+  ground:'border-amber-800',
+  rock:'border-gray-500',
+  bug:'border-green-500',
+  ghost:'border-indigo-700',
+  steel:'border-zinc-500',
+  fire:'border-orange-600',
+  water:'border-blue-500',
+  grass:'border-green-300',
+  electric:'border-indigo-600',
+  psychic:'border-amber-600',
+  dragon:'border-rose-700',
+  dark:'border-zinc-800',
+  fairy:'border-pink-700',
 };
 
 const pokeText = {
@@ -88,7 +108,7 @@ const PokemonCard = ({ pokemonUrl }) => {
   }, []);
 
   return (
-    <Link className={` min-w-[280px] mx-auto rounded-lg overflow-hidden border-8 border-${pokeColors[pokemon?.types[0].type.name]} bg-${pokeColors[pokemon?.types[0].type.name]} `} to={`/pokedex/${pokemon?.name}`}>
+    <Link className={` min-w-[280px] mx-auto rounded-lg overflow-hidden border-8 ${pokeBorder[pokemon?.types[0].type.name]} ${pokeBg[pokemon?.types[0].type.name]} `} to={`/pokedex/${pokemon?.name}`}>
       <section className={` max-w-xs bg-gradient-to-b ${pokeGradients[pokemon?.types[0].type.name]}  relative h-32 rounded-t-md `}>
         <div className="  absolute  left-1/2 -translate-x-1/2 w-[70%] -bottom-14">
           <img
