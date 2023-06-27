@@ -142,16 +142,16 @@ const Pokedex = () => {
 
         <PokemonList pokemons={pokemonsInPage} />
         
-        <section>
-          <ul>
+        <section className="pt-10 pb-6">
+          <ul className="flex justify-center gap-2 sm:gap-6">
           {
-            currentPage > 1 && <li className="cursor-pointer" onClick={handleClickPrevious}>{'<<'}</li>
+            currentPage > 1 && <li className="cursor-pointer bg-red-600 px-2 sm:p-4 py-3 rounded-md" onClick={handleClickPrevious}>{'<<'}</li>
           }
           {
-            pagesInBlock.map(page => <li className="cursor-pointer" onClick={() => setCurrentPage(page)} key={page}>{page}</li> )
+            pagesInBlock.map(page => <li className={`${page===currentPage?'bg-red-500':'bg-red-600'} cursor-pointer  px-2 sm:p-4 py-3 rounded-md`} onClick={() => setCurrentPage(page)} key={page}>{page}</li> )
           }
           {
-            currentPage < lastPage && <li className="cursor-pointer" onClick={handleClickNext}>{'>>'}</li>
+            currentPage < lastPage && <li className="cursor-pointer bg-red-600 px-2 sm:p-4 py-3 rounded-md" onClick={handleClickNext}>{'>>'}</li>
           }
           </ul>
         </section>
